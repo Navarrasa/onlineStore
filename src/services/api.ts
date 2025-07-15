@@ -18,9 +18,9 @@ export const UserLogin = async (username: string, password: string) =>{
 
 };
 
-export const getProductsAPI = async() =>{
+export const getProductsAPI = async(limit: number, skip: number) =>{
 
-    const response = await fetch('https://dummyjson.com/products',)
+    const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`,)
     
     return await response.json()
 
