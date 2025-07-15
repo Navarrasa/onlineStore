@@ -43,7 +43,7 @@ function Home(){
             <div key={produto.id} className="p-4 rounded shadow">
               <h3>{produto.title}</h3>
               <img src={produto.images[0]} alt={produto.title} />
-              <p>Preço: R${produto.price.toFixed(2)}</p>
+              <p className="p-2 bg-green-500 w-40 rounded-3xl text-center">Preço: R${produto.price.toFixed(2)}</p>
             </div>
           ))}
         </div>
