@@ -36,7 +36,7 @@ function Login() {
       <div className="relative z-10 flex items-center justify-center h-full">
         <form
           onSubmit={handleLogin}
-          className="bg-black bg-opacity-70 p-4 rounded-lg shadow-md text-white w-full max-w-md"
+          className="bg-gray-950 p-4 rounded-lg shadow-md text-white w-full max-w-md shadow-neutral-50"
         >
           <div className="mb-6">
             <h1 className="text-2xl font-bold text-center">Faça seu Login!</h1>
