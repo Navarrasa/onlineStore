@@ -7,7 +7,7 @@ function Home(){
   const [loading, setLoading] = useState<boolean>(true);
   const [erro, setError] = useState<string>('');
   const [skip, setSkip] = useState<number>(0);
-  const limit = useState<number>(12);
+  const limit = 12;
 
   useEffect(() => {
 
