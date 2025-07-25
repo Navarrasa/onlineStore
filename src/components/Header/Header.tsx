@@ -7,17 +7,17 @@ function Header() {
       <h1 className='px-4 text-xl'>Bem vindo à OnlineStore!</h1>
       <nav className="flex px-4">
         <ul className="flex gap-8">
-          <li className='opacity-80 hover:opacity-100 text-xl transition duration-700 ease-in-out'>
-            <Link to="/netflix">Netflix</Link>
+          <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
+            <Link to="/">Home</Link>
           </li>
-          <li className='opacity-80 hover:opacity-100 text-xl transition duration-700 ease-in-out'>
-            <Link to="/zillow-group">Zillow Group</Link>
+          <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
+            <Link to="/home">Products</Link>
           </li>
-          <li className='opacity-80 hover:opacity-100 text-xl transition duration-700 ease-in-out'>
-            <Link to="/yahoo">Yahoo</Link>
+          <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
+            <Link to="/profile">Profile</Link>
           </li>
-          <li className='opacity-80 hover:opacity-100 text-xl transition duration-700 ease-in-out'>
-            <Link to="/modus-create">Modus Create</Link>
+          <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
+            <Link to="/mykart">kart +1</Link>
           </li>
         </ul>
       </nav>
