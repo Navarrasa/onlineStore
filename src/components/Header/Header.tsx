@@ -14,7 +14,9 @@ function Header() {
       <div
       className='flex justify-between w-full items-center'
       >
-      <h1 className='sm:text-sm md:text-xl lg:text-2xl'>Bem vindo à OnlineStore!</h1>
+      <h1 className='sm:text-sm md:text-xl lg:text-2xl'>
+        Bem vindo à <span className="gradient-hover">OnlineStore!</span>
+      </h1>
       { isMobile && <BasicMenu/>}
       { isTablet && 
       
@@ -24,10 +26,10 @@ function Header() {
             <Link to="/">Home</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
-            <Link to="/home">Products</Link>
+            <Link to="/home">Produtos</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile">Perfil</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
             <Link to="/mykart">Carrinho</Link>
@@ -45,10 +47,10 @@ function Header() {
             <Link to="/">Home</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
-            <Link to="/home">Products</Link>
+            <Link to="/home">Produtos</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile">Perfil</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
             <Link to="/mykart">Carrinho</Link>
