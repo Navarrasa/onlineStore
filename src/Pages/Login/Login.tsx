@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { UserLogin } from "../../services/api";
-import VideoBackground from '../../../public/media/bg_video.mp4';
+import VideoBackground from '/media/bg_video.mp4';
 function Login() {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [erro, setErro] = useState('');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [erro, setErro] = useState<string>('');
   // console.log(username, password);
   
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {

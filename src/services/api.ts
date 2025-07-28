@@ -32,7 +32,7 @@ export const getProductsAPI = async(limit: number, skip: number) =>{
 
 // Função para buscar detalhes de um produto específico
 // Recebe o ID do produto.
-export const getProductAPI = async(id: string) =>{
+export const getProductAPI = async(id: number) =>{
 
     const response = await fetch(`https://dummyjson.com/products/${id}`,)
 

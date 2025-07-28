@@ -2,6 +2,7 @@
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 import type { Product } from "../../types/types";
+import { Link } from "react-router";
 
 interface ProductCardProps {
   produto?: Product; // pode ser undefined para loading
@@ -21,7 +22,7 @@ export function ProductCard({ produto }: ProductCardProps) {
   }
 
   return (
-    <div 
+    <Link to={`/product/${produto.id}`}
       key={produto.id} 
       className="
       p-6 rounded shadow cursor-pointer bg-gray-300 flex-wrap justify-between flex flex-col
@@ -38,6 +39,6 @@ export function ProductCard({ produto }: ProductCardProps) {
           Comprar
         </button>
       </div>
-    </div>
+    </Link>
   );
 }

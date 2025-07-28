@@ -9,7 +9,7 @@ function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
   const [skip, setSkip] = useState<number>(0);
-  const limit = 12;
+  const limit: number = 12;
   const [total, setTotal] = useState<number>(0); // total de produtos para paginação
 
   useEffect(() => {
