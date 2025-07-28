@@ -43,3 +43,4 @@ export const getProductAPI = async(id: number) =>{
     return await response.json();
 
 }
+

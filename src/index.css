@@ -14,6 +14,7 @@
 
 /* Estilo inicial: texto normal */
 .gradient-hover {
+  cursor: default;
   color: inherit;
   background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ecdc4);
   background-size: 400% 400%;

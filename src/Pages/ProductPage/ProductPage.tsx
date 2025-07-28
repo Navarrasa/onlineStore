@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { getProductAPI } from "../../services/api";
 import type { Product } from "../../types/types";
+import leftArr from '/leftArr.png'
 
 function ProductPage(){
     const { id } = useParams();
@@ -37,10 +38,13 @@ function ProductPage(){
 
     <section className="flex flex-col lg:flex-row gap-10 p-8 font-sans">
         {/* Esquerda: Imagem */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center">
-            <Link to="/home" className="p-2 bg-gray-300 rounded-xl mb-4 hover:bg-gray-400 transition duration-500 ease-in-out ">
-                Voltar para a lista de produtos
-            </Link>
+        <div className="w-full lg:w-1/2 flex flex-col items-center ">
+            <div className="flex flex-row w-96 justify-start items-center mb-2">
+              <Link to="/" className="flex items-center hover:bg-gray-400 duration-500 ease-in-out transition rounded-2xl p-2 cursor-pointer">
+                <img src={leftArr} alt="Left Arrow" className="w-12 h-12" />
+                <p>Voltar</p>
+              </Link>
+            </div>
             <img src={produto.images[0]} alt={produto.title} className="w-full max-w-md border-gray-300 rounded-2xl border-2" />
         </div>
 

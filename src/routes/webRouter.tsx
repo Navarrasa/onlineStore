@@ -10,12 +10,15 @@ function WebRouter() {
     <Routes>
       <Route element={<DefaultLayout/>}>
         {/* Elementos com o Layour Padrão */}
-        <Route path="/home" element={ <Home/> }/>
+        <Route path="/" element={ <Home/> }/>
+        <Route path="/produtos" element={ <Home/> }/>
+        {/* <Route path="/profile" element={ <Profile/> }/> */}
+        {/* <Route path="/mykart" element={ <Kart/> }/> */}
         <Route path="/product/:id" element={ <ProductPage/> }/>
 
       </Route>
         {/* Elementos sem o Layout Padrão */}
-        <Route path="/" element={ <Login/> }/>
+        <Route path="/login" element={ <Login/> }/>
 
     </Routes>
   
