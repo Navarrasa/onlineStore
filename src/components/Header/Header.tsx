@@ -29,7 +29,7 @@ function Header() {
             <Link to="/produtos">Produtos</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
-            <Link to="/profile">Perfil</Link>
+            <Link to="/login">Perfil</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
             <Link to="/mykart">Carrinho</Link>
@@ -50,7 +50,7 @@ function Header() {
             <Link to="/produtos">Produtos</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
-            <Link to="/profile">Perfil</Link>
+            <Link to="/login">Perfil</Link>
           </li>
           <li className='opacity-80 text-xl hover:opacity-100 hover:transition hover:duration-700 hover:ease-in-out'>
             <Link to="/mykart">Carrinho</Link>
