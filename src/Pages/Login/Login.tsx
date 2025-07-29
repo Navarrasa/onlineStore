@@ -13,7 +13,7 @@ function Login() {
     try {
       const data = await UserLogin(username, password);
       console.log("Login bem-sucedido:", data);
-      window.location.href = "/home";
+      window.location.href = "/";
     } catch (err) {
       setErro("Credenciais inválidas! Tente novamente.");
     }

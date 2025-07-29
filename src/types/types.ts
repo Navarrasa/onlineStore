@@ -19,7 +19,7 @@ export interface Dimensions {
 }
 
 export interface Product {
-  id: string | number;
+  id: number;
   title: string;
   description: string;
   category: string;
@@ -37,4 +37,21 @@ export interface Product {
   warrantyInformation: string;
   shippingInformation: string;
   availabilityStatus: string;
+}
+
+// interface Cart
+// Define a estrutura de um carrinho de compras no e-commerce.
+
+export type CartItem ={
+  product: Product;
+  quantity: number;
+}
+
+export type CartContextType = {
+  cart: CartItem[];
+  addToCart: (product: Product) => void;
+  removeFromCart: (productId: number) => void;
+  updateQuantity: (productId: number, quantity: number) => void;
+  getProductQuantity: (productId: number) => number;
+  clearCart: () => void;
 }

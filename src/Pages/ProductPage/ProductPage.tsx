@@ -1,14 +1,31 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
+
+// Lógica de megócio
 import { getProductAPI } from "../../services/api";
+
+// Tipagem
 import type { Product } from "../../types/types";
+
+// Imagens
 import leftArr from '/leftArr.png'
+
+// Contexto
+import { useCart } from "../../contexts/CartContext";
+
+// Componentes
+import ProductReviews from "../../components/Product/ProductReviews";
+import ProductStockInfo from "../../components/Product/ProductStockInfo";
+import ProductTags from "../../components/Product/ProductTags";
+import ProductInfo from "../../components/Product/ProductInfo";
 
 function ProductPage(){
     const { id } = useParams();
     const [produto, setProduto] = useState<Product>();
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string>("");
+
+    const { addToCart, getProductQuantity, updateQuantity } = useCart();
 
     // Buscar os dados do produto pela API
     useEffect(() => {
@@ -28,11 +45,11 @@ function ProductPage(){
         fetchProduct();
     }, [id]);
     
+    // Pequenas mensagens, uma para carregamento e outra para erros, respectivamente.
     if (loading) return <div className="p-8 text-4xl w-full h-dvh flex items-center justify-center">Carregando...</div>;
     if (error || !produto) return <div className="p-8 text-red-600 text-4xl w-full h-dvh flex items-center justify-center">{error}</div>;
 
-    const finalPrice = (produto.price * (1 - produto.discountPercentage / 100)).toFixed(2);
-
+    const quantity = getProductQuantity(produto.id);
 
     return(
 
@@ -50,56 +67,44 @@ function ProductPage(){
 
         {/* Direita: Detalhes */}
         <div className="w-full lg:w-1/2">
-            <div className="flex flex-wrap gap-2 mt-4">
-                {produto.tags.map((tag, index) => (
-                    <span
-                        key={index}
-                        className="bg-gray-600 text-white text-xs font-medium p-2 rounded-full"
-                        >
-                        #{tag}
-                    </span>
-                ))}
+            {/* Tags do produto */}
+            <ProductTags produto={produto} />
+            {/* Informações gerais do produto (nome, descrição etc) */}
+            <ProductInfo produto={produto} />
+            {/* Estoque, garantia e outras informações */}
+            <ProductStockInfo produto={produto} />
+            
+            {/* Botão de adicionar ao carrinho */}
+            {/* Caso a quantidade seja 0, botão fica em um estado para adicionar ao carrinho */}
+            {/* Caso contrário, é outro tipo de botão com a quantidade no carrinho de compras */}
+            {quantity > 0 ? (
+            <div className="mt-6 flex items-center gap-4 w-max rounded-lg border border-gray-300 px-4 py-2">
+                <button
+                className="text-xl font-bold px-3 opacity-60 hover:opacity-100 hover:bg-gray-200 rounded cursor-pointer duration-500 transition ease-in-out"
+                onClick={() => updateQuantity(produto.id, quantity - 1)}
+                >
+                -
+                </button>
+                <span className="text-lg font-semibold">{quantity}</span>
+                <button
+                className="text-xl font-bold px-3 opacity-60 hover:opacity-100 hover:bg-gray-200 rounded cursor-pointer duration-500 transition ease-in-out"
+                onClick={() => updateQuantity(produto.id, quantity + 1)}
+                >
+                +
+                </button>
             </div>
-            <h1 className="text-3xl font-bold mt-1">{produto.title}</h1>
-            <p className="text-sm text-gray-600 mt-1">by {produto.brand}</p>
-            <div className="flex items-center gap-4 mt-4">
-                <span className="text-2xl font-bold text-gray-800">${finalPrice}</span>
-                <span className="line-through text-gray-500">${produto.price}</span>
-                <span className="text-red-500 font-semibold text-sm">
-                    {produto.discountPercentage.toFixed(0)}% off
-                </span>
-            </div>
+            ) : (
+            <button
+                className="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transition cursor-pointer"
+                onClick={() => addToCart(produto)}
+            >
+                Add to Cart
+            </button>
+            )}
 
-        <div className="mt-6 text-sm text-gray-700 leading-relaxed">{produto.description}</div>
-
-        <div className="mt-6 space-y-2 text-sm text-gray-700">
-          <p><strong>Stock:</strong> {produto.stock} units</p>
-          <p><strong>Warranty:</strong> {produto.warrantyInformation}</p>
-          <p><strong>Shipping:</strong> {produto.shippingInformation}</p>
-          <p><strong>Availability:</strong> {produto.availabilityStatus}</p>
+            {/* Card de avaliações dos clientes */}
+            <ProductReviews produto={produto} />
         </div>
-
-        <button className="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transition">
-          Add to Cart
-        </button>
-
-        {/* Avaliações */}
-        <div className="mt-10">
-          <h2 className="text-lg font-semibold mb-4">Reviews & Ratings</h2>
-          <div className="space-y-4">
-            {produto.reviews.slice(0, 3).map((review, idx) => (
-              <div key={idx} className="border rounded-lg p-4 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-sm">{review.reviewerName}</h3>
-                  <span className="text-yellow-500">⭐ {review.rating}</span>
-                </div>
-                <p className="text-xs text-gray-500">{new Date(review.date).toLocaleDateString()}</p>
-                <p className="text-sm mt-2">{review.comment}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </section>
     );
 }

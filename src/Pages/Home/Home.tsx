@@ -12,7 +12,6 @@ function Home() {
   const [skip, setSkip] = useState<number>(0);
   const limit: number = 12;
   const [total, setTotal] = useState<number>(0); // total de produtos para paginação
-  const [carrinho, setCarrinho] = useState<Product[]>([]);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -35,7 +34,6 @@ function Home() {
   }, [skip]);
 
   function adicionarAoCarrinho(produto: Product) {
-    setCarrinho(prev => [...prev, produto]);
     alert(`Produto ${produto.title} adicionado ao carrinho!`);
   }
 
