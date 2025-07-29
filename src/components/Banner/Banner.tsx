@@ -1,4 +1,4 @@
-import { imageListClasses, useMediaQuery } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 
 export function Banner(){
     
