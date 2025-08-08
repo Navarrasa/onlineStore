@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { UserLogin } from "../../services/api";
-import VideoBackground from '/media/bg_video.mp4';
+import VideoBackground from '../../assets/media/bg_video.mp4';
 function Login() {
 
   const [username, setUsername] = useState<string>('');

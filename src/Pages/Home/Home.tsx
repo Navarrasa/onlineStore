@@ -33,10 +33,6 @@ function Home() {
     fetchProducts();
   }, [skip]);
 
-  function adicionarAoCarrinho(produto: Product) {
-    alert(`Produto ${produto.title} adicionado ao carrinho!`);
-  }
-
   return (
     <section className="w-full h-full flex flex-col items-center justify-center">
       <Banner/>
@@ -49,7 +45,7 @@ function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {loading
             ? Array.from({ length: limit }).map((_, i) => <ProductCard key={i} />)
-            : produtos.map((produto) => <ProductCard key={produto.id} produto={produto} adicionarAoCarrinho={adicionarAoCarrinho} />)
+            : produtos.map((produto) => <ProductCard key={produto.id} produto={produto} />)
           }
         </div>
       </div>

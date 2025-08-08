@@ -8,7 +8,7 @@ import { getProductAPI } from "../../services/api";
 import type { Product } from "../../types/types";
 
 // Imagens
-import leftArr from '/leftArr.png'
+import leftArr from "../../assets/leftArr.png";
 
 // Contexto
 import { useCart } from "../../contexts/CartContext";
