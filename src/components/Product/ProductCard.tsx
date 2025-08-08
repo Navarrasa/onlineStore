@@ -82,7 +82,7 @@ export function ProductCard({ produto }: ProductCardProps) {
 
         {quantity > 0 ? (
           <div
-            className="mt-6 flex items-center gap-2 w-max rounded-lg border border-gray-300 px-4 py-2"
+            className="mt-6 flex items-center gap-2 w-max rounded-lg px-4 py-2"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -98,7 +98,7 @@ export function ProductCard({ produto }: ProductCardProps) {
             <button
               aria-label="Aumentar quantidade"
               onClick={handleIncrement}
-              className="w-8 h-8 text-lg font-bold text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-200 transition"
+              className="w-8 h-8 text-lg font-bold text-gray-700 bg-white border rounded hover:bg-gray-200 transition"
             >
               +
             </button>
